@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Ordermind\Test\Unit\Helpers;
 
 use LogicException;
-use function Ordermind\Helpers\xrange;
+use function Ordermind\Helpers\Misc\xrange;
 use PHPUnit\Framework\TestCase;
 
 class XrangeTest extends TestCase
