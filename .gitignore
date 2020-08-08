@@ -1,0 +1,11 @@
+*
+!/.gitignore
+!/composer.json
+!/README.md
+!/LICENSE
+!/src
+!/src/*
+!/phpunit.xml*
+!/tests
+!/tests/*
+
