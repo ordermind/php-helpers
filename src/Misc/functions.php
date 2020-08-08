@@ -15,7 +15,7 @@ use LogicException;
  * @param int $step  the step parameter is sanitized, so it doesn't matter if you provide a positive or negative number
  *                   as long as it is not zero
  *
- * @return Generator
+ * @return Generator|int[]
  *
  * @throws LogicException
  */
