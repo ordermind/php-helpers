@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ordermind\Test\Unit\Helpers;
+namespace Ordermind\Helpers\Test\Unit\Misc;
 
 use LogicException;
 use function Ordermind\Helpers\Misc\xrange;

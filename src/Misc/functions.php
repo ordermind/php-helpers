@@ -8,7 +8,7 @@ use Generator;
 use LogicException;
 
 /**
- * Memory-efficient version of the native range() function.
+ * Memory-efficient version of the native range() function. For now only integer ranges are supported.
  *
  * @param int $start
  * @param int $end
