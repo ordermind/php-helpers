@@ -27,15 +27,17 @@ function xrange(int $start, int $end, int $step = 1): Generator
 
     $step = abs($step);
 
-    return (function ($start, $end, $step): Generator {
-        if ($start <= $end) {
+    if ($start <= $end) {
+        return (function () use ($start, $end, $step): Generator {
             for ($index = $start; $index <= $end; $index += $step) {
                 yield $index;
             }
-        } else {
-            for ($index = $start; $index >= $end; $index -= $step) {
-                yield $index;
-            }
+        })();
+    }
+
+    return (function () use ($start, $end, $step): Generator {
+        for ($index = $start; $index >= $end; $index -= $step) {
+            yield $index;
         }
-    })($start, $end, $step);
+    })();
 }
