@@ -7,6 +7,9 @@
 !/src
 !/src/*
 !/phpunit.xml*
+!/phpcs.xml
+!/phpmd.xml
+!/phpstan.neon
 !/tests
 !/tests/*
 
