@@ -9,7 +9,7 @@ use LogicException;
 /**
  * Trait for decorators so that you do not need to manually pass on every method and property.
  *
- * For IDE autocomplete integration, use the following phpdoc directives in the class:
+ * For IDE autocomplete integration, use the following phpdoc directives in the class (except the phpstan-ignore lines):
  *
  * @phpstan-ignore-next-line
  * @mixin <decorated-class/interface>
