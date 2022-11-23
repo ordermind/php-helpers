@@ -25,7 +25,6 @@ class XrangeTest extends TestCase
     public function testRangeThrowsErrorOnZeroStep(int $start, int $end)
     {
         $this->expectError();
-        $this->expectErrorMessage('range(): step exceeds the specified range');
         range($start, $end, 0);
     }
 
