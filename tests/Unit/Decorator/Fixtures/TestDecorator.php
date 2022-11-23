@@ -10,17 +10,20 @@ use Ordermind\Helpers\Decorator\DecoratesObjectTrait;
  * @mixin DecoratedObject
  * @method DecoratedObject getDecoratedObject
  */
-class TestDecorator {
+class TestDecorator
+{
     use DecoratesObjectTrait;
 
     private string $extraProperty;
 
-    public function __construct(DecoratedObject $decoratedObject, string $extraProperty) {
+    public function __construct(DecoratedObject $decoratedObject, string $extraProperty)
+    {
         $this->decoratedObject = $decoratedObject;
         $this->extraProperty = $extraProperty;
     }
 
-    public function extraMethod(string $param): string {
+    public function extraMethod(string $param): string
+    {
         return $this->extraProperty . ' ' . $param;
     }
 }

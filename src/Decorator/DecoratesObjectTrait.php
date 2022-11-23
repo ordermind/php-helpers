@@ -10,13 +10,19 @@ use LogicException;
  * Trait for decorators so that you do not need to manually pass on every method and property.
  *
  * For IDE autocomplete integration, use the following phpdoc directives in the class:
+ *
+ * @phpstan-ignore-next-line
  * @mixin <decorated-class/interface>
+ *
+ * @phpstan-ignore-next-line
  * @method <decorated-class/interface> getDecoratedObject
  */
-trait DecoratesObjectTrait {
+trait DecoratesObjectTrait
+{
     protected object $decoratedObject;
 
-    public function __call(string $method, array $args) {
+    public function __call(string $method, array $args)
+    {
         if (!is_callable([$this->decoratedObject, $method])) {
             throw new LogicException('Call to undefined method ' . __CLASS__ . '::' . $method . '()');
         }
@@ -24,7 +30,8 @@ trait DecoratesObjectTrait {
         return call_user_func_array([$this->decoratedObject, $method], $args);
     }
 
-    public function __get(string $property) {
+    public function __get(string $property)
+    {
         if (!property_exists($this->decoratedObject, $property)) {
             throw new LogicException('Undefined property: ' . __CLASS__ . '::' . $property);
         }
@@ -32,7 +39,8 @@ trait DecoratesObjectTrait {
         return $this->decoratedObject->$property;
     }
 
-    public function __set(string $property, $value) {
+    public function __set(string $property, $value)
+    {
         if (!property_exists($this->decoratedObject, $property)) {
             throw new LogicException('Undefined property: ' . __CLASS__ . '::' . $property);
         }
@@ -42,7 +50,8 @@ trait DecoratesObjectTrait {
         return $this;
     }
 
-    public function getDecoratedObject(): object {
+    public function getDecoratedObject(): object
+    {
         return $this->decoratedObject;
     }
 }
