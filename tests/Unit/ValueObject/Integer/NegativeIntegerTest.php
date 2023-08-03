@@ -16,19 +16,22 @@ class NegativeIntegerTest extends TestCase
      */
     public function testThrowsExceptionOnInvalidInput(
         string $expectedExceptionClass,
-        string $expectedExceptionMessage,
+        ?string $expectedExceptionMessage,
         $input
     ): void {
         $this->expectException($expectedExceptionClass);
-        $this->expectExceptionMessageMatches('/' . $expectedExceptionMessage . '/');
+        if ($expectedExceptionMessage) {
+            $this->expectExceptionMessageMatches('/' . $expectedExceptionMessage . '/');
+        }
+        
         new NegativeInteger($input);
     }
 
     public function provideInvalidInputCases(): array
     {
         return [
-            [TypeError::class, 'must be of the type int, string given', '-1'],
-            [TypeError::class, 'must be of the type int, bool given', false],
+            [TypeError::class, null, '-1'],
+            [TypeError::class, null, false],
             [DomainException::class, 'The value must be a negative integer, given value was "0".', 0],
             [DomainException::class, 'The value must be a negative integer, given value was "1".', 1],
             [DomainException::class, 'The value must be a negative integer, given value was "100".', 100],

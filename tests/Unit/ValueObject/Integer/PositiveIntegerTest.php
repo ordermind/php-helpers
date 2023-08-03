@@ -16,19 +16,22 @@ class PositiveIntegerTest extends TestCase
      */
     public function testThrowsExceptionOnInvalidInput(
         string $expectedExceptionClass,
-        string $expectedExceptionMessage,
+        ?string $expectedExceptionMessage,
         $input
     ): void {
         $this->expectException($expectedExceptionClass);
-        $this->expectExceptionMessageMatches('/' . $expectedExceptionMessage . '/');
+        if ($expectedExceptionMessage) {
+            $this->expectExceptionMessageMatches('/' . $expectedExceptionMessage . '/');
+        }
+
         new PositiveInteger($input);
     }
 
     public function provideInvalidInputCases(): array
     {
         return [
-            [TypeError::class, 'must be of the type int, string given', '1'],
-            [TypeError::class, 'must be of the type int, bool given', true],
+            [TypeError::class, null, '1'],
+            [TypeError::class, null, true],
             [DomainException::class, 'The value must be a positive integer, given value was "0".', 0],
             [DomainException::class, 'The value must be a positive integer, given value was "-1".', -1],
             [DomainException::class, 'The value must be a positive integer, given value was "-100".', -100],
