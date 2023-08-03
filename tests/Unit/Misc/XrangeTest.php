@@ -6,6 +6,7 @@ namespace Ordermind\Helpers\Test\Unit\Misc;
 
 use LogicException;
 use PHPUnit\Framework\TestCase;
+use ValueError;
 
 use function Ordermind\Helpers\Misc\xrange;
 
@@ -24,7 +25,7 @@ class XrangeTest extends TestCase
      */
     public function testRangeThrowsErrorOnZeroStep(int $start, int $end)
     {
-        $this->expectError();
+        $this->expectException(ValueError::class);
         range($start, $end, 0);
     }
 
