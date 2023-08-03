@@ -11,7 +11,6 @@ use DomainException;
  */
 class PositiveInteger extends AbstractInteger
 {
-
     /**
      * {@inheritDoc}
      */

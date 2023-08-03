@@ -9,13 +9,10 @@ use LogicException;
 /**
  * Trait for decorators so that you do not need to manually pass on every method and property.
  *
- * For IDE autocomplete integration, use the following phpdoc directives in the class (except the phpstan-ignore lines):
+ * For IDE autocomplete integration, use the following phpdoc directives in the class (Remove parentheses around @):
  *
- * @phpstan-ignore-next-line
- * @mixin <decorated-class/interface>
- *
- * @phpstan-ignore-next-line
- * @method <decorated-class/interface> getDecoratedObject
+ * (@)mixin <decorated-class/interface>
+ * (@)method <decorated-class/interface> getDecoratedObject
  */
 trait DecoratesObjectTrait
 {

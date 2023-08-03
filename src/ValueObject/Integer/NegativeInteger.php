@@ -11,7 +11,6 @@ use DomainException;
  */
 class NegativeInteger extends AbstractInteger
 {
-
     /**
      * {@inheritDoc}
      */

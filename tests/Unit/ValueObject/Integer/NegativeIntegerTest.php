@@ -23,7 +23,7 @@ class NegativeIntegerTest extends TestCase
         if ($expectedExceptionMessage) {
             $this->expectExceptionMessageMatches('/' . $expectedExceptionMessage . '/');
         }
-        
+
         new NegativeInteger($input);
     }
 
