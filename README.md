@@ -7,3 +7,7 @@
 ## Functions
 
 **xrange** - Memory efficient version of the native range() function
+
+## Value Objects
+
+**Integer** - Positive, negative and zero value. There is also a factory available to create the right object.
